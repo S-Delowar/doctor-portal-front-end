@@ -19,6 +19,8 @@ import { useForm } from "react-hook-form";
 
 
 const Appointment = (props) => {
+    const [patientInfo, setPatientInfo] = useState(null);
+    //const [isSuccess, setIsSuccess] =useState(true)
     //calendar
     const [date, setDate] = useState(new Date());
     const handleDateChange = date => {
@@ -29,6 +31,23 @@ const Appointment = (props) => {
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
         console.log(data);
+        fetch('http://localhost:3000/addAppointment', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setPatientInfo(data)
+                const successMessage = document.getElementById("success-message");
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = "none";
+                    }, 50000);
+            }
+            )
     };
     //form ends
     //dialog:
@@ -62,7 +81,7 @@ const Appointment = (props) => {
             </div>
 
 
-            <div className="available-appointments" style={{ marginBottom: '150px', border:'1px solid lightgray', padding:'30px 10px' }}>
+            <div className="available-appointments" style={{ marginBottom: '150px', border: '1px solid lightgray', padding: '30px 10px' }}>
                 <h2 className="text-center mb-4">Available appointments on: <span className="text-danger">{date.toDateString()}</span></h2>
                 <div className="card-group">
                     <div className="card mt-4 mr-2">
@@ -128,27 +147,37 @@ const Appointment = (props) => {
                 >
                     <DialogTitle id="responsive-dialog-title">{"Give your Informations to get Appointment"}</DialogTitle>
                     <DialogContent>
-                        <form className="appointment-dialog" onSubmit={handleSubmit(onSubmit)}>
-                            <input name="name" ref={register({ required: true })} placeholder="Name" />
-                            {errors.name && <span className="error">Name is required</span>}
+                        <div>
+                            <form className="appointment-dialog" onSubmit={handleSubmit(onSubmit)}>
+                                <input name="name" ref={register({ required: true })} placeholder="Name" />
+                                {errors.name && <span className="error">Name is required</span>}
 
-                            <input name="phoneNumber" ref={register({ required: true })} placeholder="Phone Number" />
-                            {errors.phoneNumber && <span className="error">Phone number is required</span>}
+                                <input name="phoneNumber" ref={register({ required: true })} placeholder="Phone Number" />
+                                {errors.phoneNumber && <span className="error">Phone number is required</span>}
 
-                            <input name="email" ref={register({ required: true })} placeholder="Email" />
-                            {errors.email && <span className="error">Email is required</span>}
+                                <input name="email" ref={register({ required: true })} placeholder="Email" />
+                                {errors.email && <span className="error">Email is required</span>}
 
-                            <input name="address" ref={register({ required: true })}  placeholder="Address"/>
-                            {errors.address && <span className="error">Address is required</span>}
+                                <input name="address" ref={register({ required: true })} placeholder="Address" />
+                                {errors.address && <span className="error">Address is required</span>}
 
-                            <input name="date" defaultValue={date.toDateString()} ref={register({ required: true })} />
+                                <input name="date" defaultValue={date.toDateString()} ref={register({ required: true })} />
 
-                            <input className="btn btn-success" type="submit" value="Send"/>
-                        </form>
+                                <input className="btn btn-danger" type="submit" value="Send" />
+                            </form>
+                            <div style={{display: 'none', color:'green'}} id="success-message">
+                            <p><small> Appointment is Successful</small></p>
+                            <p><small>Thank you..</small></p>
+            </div>
+                        </div>
+                        {/* <div style={{ display: !isSuccess && 'block' }} >
+                            <h4>Your Appointment is done successfully.</h4>
+                            <h2>Thank you..</h2>
+                        </div> */}
                     </DialogContent>
                     <DialogActions>
                         <Button autoFocus onClick={handleClose} color="primary">
-                            Cancel
+                            Close
                         </Button>
                     </DialogActions>
                 </Dialog>
