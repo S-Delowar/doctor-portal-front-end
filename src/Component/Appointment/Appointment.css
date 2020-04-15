@@ -1,0 +1,35 @@
+img {
+    width: 100%;
+    height: auto;
+    justify-content: end;
+    padding-top: 50px;
+}
+.card{
+    border: none;
+    text-align: center;
+    box-shadow: 5px 5px 10px lightgray;
+    border-radius: 10px;
+    
+}
+
+.appointment-dialog {
+    margin: 10px 10px;
+}
+
+.appointment-dialog input {
+    width: 400px;
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;   
+}
+.appointment-dialog .error {
+    color: red;
+}
+.appointment-date-section {
+    background-image: url("../../images/Mask\ Group\ 2.png");
+    padding: 100px 20px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
