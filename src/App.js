@@ -12,7 +12,11 @@ import NotFound from './Component/NotFound/NotFound';
 import Home from './Component/Home/Home';
 import ReactCalendar from './Component/ReactCalendar/ReactCalendar';
 import { useState } from 'react';
-import Doctor from './Component/Doctor/Doctor';
+import Dashboard from './Component/Doctor/Dashboard/Dashboard';
+import SideBar from './Component/Doctor/SideBar/SideBar';
+import Appointments from './Component/Doctor/Appointments/Appointments';
+import Patients from './Component/Doctor/Patients/Patients';
+import Prescriptions from './Component/Doctor/Prescriptions/Prescriptions';
 
 function App() {
   const [disease, setDisease] = useState([]);
@@ -21,7 +25,7 @@ function App() {
   }
 
   return (
-      <div className="container">
+      <div>
         <Router>
           <Switch>
           <Route exact path="/">
@@ -32,17 +36,30 @@ function App() {
               <Header></Header>
               <Home></Home>
             </Route>
-            <Route path="/doctor">
-              <Header></Header>
-              <Doctor></Doctor>
-            </Route>
+               
             <Route path='/appointment'>
               <Header></Header>
               <Appointment disease={disease}  handleDisease={handleDisease}></Appointment>
             </Route>
-            <Route path="/calendar">
-              <ReactCalendar></ReactCalendar>
+            <Route path="/doctor/dashboard">
+              <SideBar></SideBar>
+              <Dashboard></Dashboard>
             </Route>
+            <Route path="/doctor/appointments">
+              <SideBar></SideBar>
+              <Appointments></Appointments>
+            </Route>
+            <Route path="/doctor/patients">
+              <SideBar></SideBar>
+              <Patients></Patients>
+            </Route>
+            <Route path="/doctor/prescriptions">
+              <SideBar></SideBar>
+              <Prescriptions></Prescriptions>
+            </Route>
+            <Route path="/doctor">
+              <SideBar></SideBar>
+            </Route>         
             <Route path="*">
               <Header></Header>
               <NotFound></NotFound>
