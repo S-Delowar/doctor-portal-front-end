@@ -6,9 +6,9 @@ import ResponsiveDialog from '../Appointment/AppointmentInfo';
 
 const Home = () => {
     return (
-        <div className="home-section">
+        <div className="home-section" style={{padding:'100px'}}>
             <div className="row">
-            <div className="col-6 p-4">
+            <div className="col-6" style={{padding:'50px'}}>
                 <h1>Your New Smile Starts Here</h1>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
                 <br/>

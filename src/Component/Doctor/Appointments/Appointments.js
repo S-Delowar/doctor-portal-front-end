@@ -21,7 +21,7 @@ const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/appointments')
+    fetch('https://thawing-hamlet-94010.herokuapp.com/appointments')
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -32,12 +32,13 @@ const Appointments = () => {
   return (
     <div>
       <div className=" d-flex">
-        <div className="col-3">
+        <div className="col-2">
           <SideBar></SideBar>
         </div>
-        <div className="col-9 bg-light" style={{ height: '100vh' }} >
-          <h4 className="btn btn-primary mt-2 text-white mb-4" style={{ fontWeight: '700' }}>Appointments</h4>
-          <div className=" d-flex justify-content-between">
+        <div className="col-10 bg-light" style={{ height: '100vh',  padding: '20px 50px'  }} >
+        <h3 className="text-primary mt-2">Appointments</h3>
+        <hr/>
+          <div className=" d-flex justify-content-between mt-4">
             <div className="col-5">
               <div className="calendar">
                 <Calendar onChange={handleDateChange} value={date} />

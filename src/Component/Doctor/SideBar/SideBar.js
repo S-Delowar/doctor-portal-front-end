@@ -13,34 +13,34 @@ const SideBar = () => {
                     <hr className="bg-white"/>
                 </li>
                 <li>
-                    <Link to="/doctor/dashboard" className="text-white" >
+                    <Link to="/doctor/dashboard" className="text-white text-decoration-none" >
                         <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/appointments" className="text-white">
+                    <Link to="/doctor/appointments" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faCalendarCheck} /> <span>Appointments</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/patients" className="text-white">
+                    <Link to="/doctor/patients" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faUsers} /><span>Patients</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/prescriptions" className="text-white">
+                    <Link to="/doctor/prescriptions" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faFilePrescription} /><span>Prescriptions</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/settings" className="text-white">
+                    <Link to="/doctor/settings" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faCog} /><span>Settings</span>
                     </Link>
                 </li>
                 <br/>
                 <br/>
                 <div>
-                    <Link to="/" className="text-white">
+                    <Link to="/" className="text-white text-decoration-none">
                     <FontAwesomeIcon icon={faArrowLeft} /><span>Log Out</span>
                     </Link>
                 </div>

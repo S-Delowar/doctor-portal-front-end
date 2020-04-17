@@ -31,7 +31,7 @@ const Appointment = (props) => {
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:3000/addAppointment', {
+        fetch('https://thawing-hamlet-94010.herokuapp.com/addAppointment', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -66,8 +66,8 @@ const Appointment = (props) => {
 
 
     return (
-        <div>
-            <div className="row d-flex appointment-date-section">
+        <div >
+            <div className="row d-flex appointment-date-section" style={{padding:'100px'}}>
                 <div className="col-6">
                     <h2>Choose your date-</h2>
                     <div className="calendar">
@@ -81,7 +81,7 @@ const Appointment = (props) => {
             </div>
 
 
-            <div className="available-appointments" style={{ marginBottom: '150px', border: '1px solid lightgray', padding: '30px 10px' }}>
+            <div className="available-appointments" style={{ margin:'0 20px 150px 20px', border: '1px solid lightgray', padding: '30px 30px' }}>
                 <h2 className="text-center mb-4">Available appointments on: <span className="text-danger">{date.toDateString()}</span></h2>
                 <div className="card-group">
                     <div className="card mt-4 mr-2">
@@ -151,6 +151,12 @@ const Appointment = (props) => {
                             <form className="appointment-dialog" onSubmit={handleSubmit(onSubmit)}>
                                 <input name="name" ref={register({ required: true })} placeholder="Name" />
                                 {errors.name && <span className="error">Name is required</span>}
+
+                                <input name="age" ref={register({ required: true })} placeholder="Age" />
+                                {errors.age && <span className="error">Age is required</span>}
+
+                                <input name="gender" ref={register({ required: true })} placeholder="Gender" />
+                                {errors.gender && <span className="error">Gender is required</span>}
 
                                 <input name="phoneNumber" ref={register({ required: true })} placeholder="Phone Number" />
                                 {errors.phoneNumber && <span className="error">Phone number is required</span>}

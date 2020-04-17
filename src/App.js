@@ -57,9 +57,6 @@ function App() {
               <SideBar></SideBar>
               <Prescriptions></Prescriptions>
             </Route>
-            <Route path="/doctor">
-              <SideBar></SideBar>
-            </Route>         
             <Route path="*">
               <Header></Header>
               <NotFound></NotFound>

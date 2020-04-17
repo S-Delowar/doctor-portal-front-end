@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div style={{ marginTop:'20px'}}>
+        <div style={{ marginTop:'40px'}}>
             <nav className="fixed-top container">
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
@@ -18,7 +18,7 @@ const Header = () => {
                         <a className="nav-link" href="/reviews" >Reviews</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/doctor" >Doctor</a>
+                        <a className="nav-link" href="/doctor/dashboard" >Doctor</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/blog" >Blog</a>

@@ -15,6 +15,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "date-fns": "^2.12.0",
+    "firebase": "^7.14.1",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
@@ -47,5 +48,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S-Delowar/doctor-portal-front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/S-Delowar/doctor-portal-front-end/issues"
+  },
+  "homepage": "https://github.com/S-Delowar/doctor-portal-front-end#readme"
 }
